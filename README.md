@@ -16,3 +16,6 @@
 
 #### 后期计划
 后期再增加前端页面，通过页面来增加爬取小说信息。可以展示小说播放进度、合成进度。
+
+---
+![公众号](https://upload-images.jianshu.io/upload_images/9101119-d69e29ae475ea954.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

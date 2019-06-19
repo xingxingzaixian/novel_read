@@ -27,7 +27,8 @@ class Player:
             result = self.db.get_chapter_content(self.tag, self.home_url)
             if result:
                 self.tag += 1
-                content = result.strip()
+                print(result[0])
+                content = result[1].strip()
                 for line in content.split("。"):
                     voice = self.db.get_voice_data(line.strip())
                     self.play(voice)
@@ -48,8 +49,8 @@ class Player:
             print(e)
 
     def __del__(self):
-        self.db.release()
         self.db.save_play_schedule(self.tag-1, self.home_url)
+        self.db.release()
 
 if __name__ == '__main__':
     url = "https://www.biquge.info/40_40289/"

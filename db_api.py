@@ -43,10 +43,10 @@ class DbApi:
         # 如果传入的章节地址为空，则取第一个章节进行播放
         if not tag:
             tag = 0
-        self.cursor.execute("select content from novel_chapter where chapter_id=%s and novel_url='%s'" % (tag, home_url))
+        self.cursor.execute("select title, content from novel_chapter where chapter_id=%s and novel_url='%s'" % (tag, home_url))
         result = self.cursor.fetchone()
         if result:
-            return result[0]
+            return result
         return None
 
     # 获取文本对应的合成语音数据
@@ -79,7 +79,7 @@ class DbApi:
             self.conn.commit()
 
     def save_play_schedule(self, tag, home_url):
-        if not tag:
+        if tag:
             self.cursor.execute("update novel_schedule set tag=%d where url='%s'" % (tag, home_url))
             self.conn.commit()
 
